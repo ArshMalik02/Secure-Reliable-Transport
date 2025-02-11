@@ -1,7 +1,20 @@
-# CS 118 Fall 24 Project 2
+# Secure Reliable Transport Protocol (SRTP)
 
-This repository contains the solution to Project 1. It also has extra code that serves as the baseline to Project 2.
+## Overview
+SRTP is a custom-built transport layer protocol over UDP, designed to ensure **reliable data transfer** and **secure communication**. This project was developed as part of CS 118: Computer Network Fundamentals, and consists of two phases:
 
-`security.c` and `security.h` are wrappers around OpenSSL 3's `libcrypto` library. Any of the complicated cryptography mechanics have already been implemented for you. Feel free to read their descriptions in `security.h`. When submitting, make sure to add these files to your Makefile and your ZIP file.
+1. **Reliable Transport Layer:** Implements a TCP-like protocol over UDP with features like sequencing, acknowledgments, retransmissions, and flow control.
+2. **Security Layer:** Adds encryption, authentication, and integrity checks to protect data transmission from tampering and eavesdropping.
 
-In the `keys` directory, you'll see the files mentioned by the spec. Place these in the current working directory of wherever you're testing. For example, if you run `./client` and your PWD is `/Users/eado`, make sure `ca_public_key.bin` exists in `/Users/eado`. Note that the autograder automatically generates these files--do not rely on the exact contents of them. Read the [spec](https://docs.google.com/document/d/1FmEiFnYRwgBep5xgdoXmsTbzCaiUmznaYc6W-SHPtCs) for more info.
+## Features
+### 🚀 **Reliable Transport (Project 1)**
+- Implements a **three-way handshake** for connection establishment.
+- Uses **sequencing and acknowledgments** to ensure in-order delivery.
+- Implements **selective retransmissions** and **window-based flow control** for efficiency.
+- Handles **packet loss and reordering** using a timeout-based retransmission strategy.
+
+### 🔒 **Security Layer (Project 2)**
+- Implements **TLS-like encryption** using **AES-256-CBC** for confidentiality.
+- Uses **Diffie-Hellman key exchange** for secure session key generation.
+- Ensures message integrity with **HMAC-SHA256 authentication**.
+- Implements **digital signatures (ECDSA)** for client-server authentication.
